@@ -1,6 +1,6 @@
 {
   "name": "@mikkurogue/tracing-core",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A runtime-agnostic tracing library for TypeScript/JavaScript, inspired by Rust's tracing crate",
   "type": "module",
   "main": "./dist/index.cjs",

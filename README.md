@@ -14,7 +14,7 @@ A runtime-agnostic tracing library for TypeScript/JavaScript, inspired by Rust's
 ## Installation
 
 ```bash
-npm install @tracing/core
+npm install @mikkurogue/tracing-core
 ```
 
 ## Quick Start
@@ -28,7 +28,7 @@ import {
   warn, 
   error,
   span 
-} from "@tracing/core";
+} from "@mikkurogue/tracing-core";
 
 // Initialize with a console subscriber
 setGlobalSubscriber(new ConsoleSubscriber({ 
@@ -58,7 +58,7 @@ Output:
 Spans represent a period of time and provide context for events:
 
 ```typescript
-import { span, info, debug } from "@tracing/core";
+import { span, info, debug } from "@mikkurogue/tracing-core";
 
 // Using run() for automatic enter/exit
 span("handle_request", { method: "GET" }).run(() => {
@@ -88,7 +88,7 @@ await span("fetch_data").runAsync(async () => {
 Five levels available (from most to least verbose):
 
 ```typescript
-import { trace, debug, info, warn, error } from "@tracing/core";
+import { trace, debug, info, warn, error } from "@mikkurogue/tracing-core";
 
 trace("Very detailed info");   // Level.TRACE
 debug("Debugging info");       // Level.DEBUG  
@@ -135,7 +135,7 @@ new ConsoleSubscriber({
 Automatically wrap functions with spans:
 
 ```typescript
-import { instrument, instrumentAsync } from "@tracing/core";
+import { instrument, instrumentAsync } from "@mikkurogue/tracing-core";
 
 // Sync function
 const processItem = instrument("process_item", (item: Item) => {
@@ -184,7 +184,7 @@ setGlobalSubscriber(new MySubscriber());
 Use `CollectorSubscriber` to capture events in tests:
 
 ```typescript
-import { CollectorSubscriber, setGlobalSubscriber, info } from "@tracing/core";
+import { CollectorSubscriber, setGlobalSubscriber, info } from "@mikkurogue/tracing-core";
 
 const collector = new CollectorSubscriber();
 setGlobalSubscriber(collector);
